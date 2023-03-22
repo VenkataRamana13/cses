@@ -1,4 +1,4 @@
 # cses
-CSES problem set 
+CSES problem set solutions
 
-Attempt at solving the cses problem set -> https://cses.fi/problemset/list/
+cses problem set -> https://cses.fi/problemset/list/
