@@ -1,0 +1,120 @@
+STL: the only resource you need: 
+
+using STL : we can write that can run faster. 
+			stl codes are error free and optimized. 
+			as we study advanced concepts, stl's will be important
+			. Vectors are used in graph adjacency list
+			. Pairs and sets are used in dijkstra algorithm in graph
+			. and many more... 
+	
+Vector: dynamic sized array 
+vector<int> v; 
+vector<int> v(10); //length 10 vector
+vector<char> v(10, 'h'); 
+v.push_back(3); 
+cout << v[1] << "\n"; 
+v.pop_back(); 
+v.clear();   //clears entire vector
+cout << v.size(); 
+vector<int> v[50];  // array of 50 vectors
+
+sort() - mixture of quicksort, heapsort and insertion sort. 
+		very efficient algorithm, no need for custom sort
+sort(a, a + n); 
+sort(v.begin(), v.end());
+sort(ptr_to_first_element, ptr_to_last_element + 1);
+
+//pairs are used when we need a combination or relation between two values
+pair<int, int> p;    // can be used as dictionaries and hash tables
+pair<int, string> p; // can return multiple values from a function
+pair<int, pair<int, string>> p;
+pair<vector<int>, string> p; 
+pair<string, int> p = {"hello", 6}; 
+cout << p.first() << " " << p.second();   
+pair<vector<pair<int, vector<int>>>, string>  // overnesting is probably not so useful
+pair<int, int> p[5];   // an array of 5 pairs
+p[0] = {1, 2}; p[1] = {5, 2}; p[2] = {8, 1}; p[3] = {1, 0}, p[4] = {3, 4}; 
+sort(p, p + 5)
+[{1, 0}, {1, 2}, {3, 4}, {5, 2}, {8, 1}]
+
+
+//for sorting score, name
+vector<pair<int, string>> v; 
+sort(v.begin(), v.end());
+
+auto it = v.begin();   //iterators behave  a lot like pointers
+cout << *it;
+it++; 
+cout << *it; 
+it--; 
+cout << *it; 
+cout << *(it + 3); 
+
+//set is a container which keeps a unique copy of every element in sorted order 
+//used when we want to store a unique collection of objects and want to perform 
+insertion, deletion, and searching
+set<int> s; 
+set<string> s; 
+s.insert(x);   //O(logn) 
+s.erase(x);    //O(logn) 
+s.count(x);    //O(logn) 
+s.clear();     //O(n)
+s.size()       //O(1)
+//can have a set of any data type
+
+
+s.insert(10); 
+s.insert(15); 
+cout << s.count(10) //prints 1
+cout << s.count(15) //prints 1
+cout << s.count(9)  //prints 0
+cout << s[0]  		//wrong
+
+auto it = s.begin()
+it++, it--, ++it, --it -> all valid in logn time
+* (it + 5) or it += 2 are not valid. To advance multiple steps, do it++ multiple times. 
+
+//functions related to set iterators
+s.find(x); 
+s.lower_bound(x); 
+s.upper_bound(x); 
+s.find(it);         //returns iterator to the first element which has value x. Returns s.end() if not found. O(logn)
+s.lower_bound(x)   //returns iterator to the first element which is >= x. Returns s.end() if not found. O(logn)
+s.upper_bound(x)    //returns iterator to 
+
+s.erase(s.begin()); //erases smallest element from the set. 
+
+
+
+//map 
+//use whenever we need to store frequency 
+map<int, int> freq; 
+//like python - dictionaries
+//key - value pairs
+map<key_datatype, value_datatype>
+map<string, int> m; 
+m["hello"] = 50; 
+m["world"] = 12; 
+// map iterators are similar to set iterators, but upon 
+doing *it, we get pair of {key, value}
+auto it = m.find("ramana")
+pair<string, double> p = *it //{"ramana", m["ramana"]}
+map<int, int> m; 
+cout << m.size() << "\n"; 
+
+
+//iterating containers
+for(auto it = s.begin(); it != s.end(); it++){
+	//*it   //works for all 3: set, vector and map
+}
+//shortform:
+vector<int> v; 
+for(int x: v){
+	//x
+}
+set<int> s; 
+for(int x: s){
+	//x
+}
+map<int, int> m; 
+for(pair<int, int> p)
